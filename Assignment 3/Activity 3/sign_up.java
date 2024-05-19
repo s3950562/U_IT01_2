@@ -1,5 +1,4 @@
-//	This class represents the entire sign-up process for a user,
-//	including submitting their details, agreeing to terms, and verifying their email.
+// Class that shows the process for a user to sign up on CodeQA
 
 public class UserSignUp {
 
@@ -8,163 +7,160 @@ public class UserSignUp {
         signUpProcess.startSignUp();
     }
 
-    //	Starts the sign-up process by creating a user object
+    // sign-up process by creating a user object.
     public void startSignUp() {
         User user = new User();
 
-        // [1] user navigates to the sign-up page
-        navigateToSignUpPage();
-
-        // [2] user submits username
+        // Step 1: User submits username
         user.setUsername(submitUsername());
 
-        // [3] system checks if the username is unique
+        // Step 2: Check if username is unique
         while (!isUsernameUnique(user.getUsername())) {
             user.setUsername(promptForUniqueUsername());
         }
 
-        // [4] user submits email
+        // Step 3: User submits email
         user.setEmail(submitEmail());
 
-        // [5] system checks if the email is valid
+        // Step 4: Check if email is valid
         while (!isEmailValid(user.getEmail())) {
             user.setEmail(promptForValidEmail());
         }
 
-        // [6] user submits password
+        // Step 5: User submits password
         user.setPassword(submitPassword());
 
-        // [7] system checks if the password meets the standards
+        // Step 6: Check if password is secure
         while (!isPasswordSecure(user.getPassword())) {
             user.setPassword(promptForSecurePassword());
         }
 
-        // [8] system presents Terms and Conditions
+        // Step 7: Present terms of service
         presentTermsOfService();
 
-        // [9] user agrees to Terms and Conditions
+        // Step 8: User agrees to terms and services
         if (agreeToTerms()) {
-			// [10] user submits the form
+            // Step 9: User submits Sign-Up form
             submitSignUpForm(user);
 
-			// [11] system creates a new user and stores the information
+            // Step 10: Create new user and store information
             createUser(user);
 
-			// [12] system sends a verification email
+            // Step 11: Send verification email
             sendVerificationEmail(user);
 
-			// [13]  user verifies the email
+            // Step 12: User verifies their email
             if (verifyEmail(user)) {
-        // [14] initialise the user account
-                initialiseUserAccount(user);
+                // Step 13: Initialize user account
+                initializeUserAccount(user);
             } else {
-                // user did not press the verification link
+                // User did not press the verification link
                 suspendUserAccount(user);
             }
         }
     }
 
-    //	navigating to the sign-up page.
-    private void navigateToSignUpPage() {
-        System.out.println("Welcome to CodeQA, let's get you an account...");
-    }
-
-    //	user submitting a username and returns the value.
-
+    // skeleton for the user submitting a username.
+    // This method returns a placeholder username.
     private String submitUsername() {
-        System.out.println("Enter a username...");
-        return "Billy Joel"; // Example of user input
+        return "exampleUsername"; // Placeholder for user input
     }
 
-    //	checks if the submitted username is unique.
+    // Checks if the username is unique.
+    // This method returns true if the username is unique, false otherwise.
     private boolean isUsernameUnique(String username) {
-        System.out.println("One moment, let's see if the username is unique...");
-		//
-        return !username.equals("");
+        // Placeholder for actual check
+        return !username.equals("existingUsername");
     }
 
-    //	prompts the user to enter a unique username.
+    // Prompts the user to enter a unique username.
+    // This method returns a new unique username.
     private String promptForUniqueUsername() {
-		//
-        return "";
+        return "newUniqueUsername"; // Placeholder for user input
     }
 
-    //	submitting an email.
+    // skeleton for the user submitting an email.
+    // This method returns a placeholder email.
     private String submitEmail() {
-		//
-        return "";
+        return "user@example.com"; // Placeholder for user input
     }
 
-    // checks if the submitted email is valid.
+    // Checks if the email is valid.
+    // This method returns true if the email is valid, false otherwise.
     private boolean isEmailValid(String email) {
-        System.out.println("Checking if the email is valid...");
-        //
+        // Placeholder for actual check
         return email.contains("@");
     }
 
-    // prompts the user to enter a valid email.
+    // Prompts the user to enter a valid email.
+    // This method returns a valid email.
     private String promptForValidEmail() {
-        return "";
+        return "valid@example.com"; // Placeholder for user input
     }
 
-    // user submitting a password.
+    // skeleton for the user submitting a password.
+    // This method returns a placeholder password.
     private String submitPassword() {
-		//
-        return "";
+        return "examplePassword"; // Placeholder for user input
     }
 
-    // 	checks if the submitted password is secure.
+    // Checks if the password is secure.
+    // This method returns true if the password is secure, false otherwise.
     private boolean isPasswordSecure(String password) {
+        // Placeholder for actual check
         return password.length() > 6;
     }
 
-    //	prompts user to write a secure password.
+    // Prompts the user to enter a secure password.
+    // This method returns a secure password.
     private String promptForSecurePassword() {
-		//
-        return "";
+        return "securePassword"; // Placeholder for user input
     }
 
-    //	presents T&Cs.
+    // skeleton for presenting the terms of service to the user.
     private void presentTermsOfService() {
-        System.out.println("T&Cs");
+        // Placeholder for presenting terms
     }
 
-    // the user accepts to the T&Cs.
+    // skeleton for the user agreeing to the terms of service.
+    // This method returns true to indicate agreement.
     private boolean agreeToTerms() {
-        return true;
+        return true; // Placeholder for user agreement
     }
 
-    // submit the sign-up form.
+    // skeleton for submitting the sign-up form.
     private void submitSignUpForm(User user) {
-        System.out.println("Submitting Sign-Up form...");
+        // Placeholder for form submission
     }
 
-    //	creating a new user and storing their information.
+    // skeleton for creating a new user and storing their information.
     private void createUser(User user) {
+        // Placeholder for creating user
     }
 
-    //	sending a verification email to the user.
+    // skeleton for sending a verification email to the user.
     private void sendVerificationEmail(User user) {
-        System.out.println("Sending verification email...");
+        // Placeholder for sending email
     }
 
-    //	verifying user email.
+    // skeleton for user verifying their email.
+    // This method returns true to indicate successful verification.
     private boolean verifyEmail(User user) {
-        System.out.println("Please check your email...");
         return true; // Placeholder for actual verification
     }
 
-    //	creating user's account after email verification.
-    private void initialiseUserAccount(User user) {
-        System.out.println("Creating your own account...");
+    // skeleton for initializing the user account.
+    private void initializeUserAccount(User user) {
+        // Placeholder for initializing account
     }
 
-    // suspends the account if email verification fails.
+    // skeleton for suspending the user's account.
     private void suspendUserAccount(User user) {
-        System.out.println("Account is suspended...");
+        // placeholder for suspending account
     }
 
-    //	methods for setting and getting the username, email, and password.
+    // Class representing the user's information.
+    // This class holds the username, email, and password of the user.
     class User {
         private String username;
         private String email;

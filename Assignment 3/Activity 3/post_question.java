@@ -13,7 +13,7 @@ public class UserPostQuestion {
         User user = new User("exampleUsername");
         Question question = new Question();
 
-        // [1] user creates a question
+        // [1] User creates a question
         // Here, the user sets the title and content for their question.
         question.setTitle(getTitle());
         question.setContent(getContent());
@@ -40,49 +40,53 @@ public class UserPostQuestion {
     }
 
     // Simulates the user creating a question title.
+    // This method returns a placeholder title for the question.
     private String getTitle() {
         System.out.println("What is the question title?");
-        // Returning a placeholder for user input
-        return "";
+        return "Example Question Title";
     }
 
     // Simulates the user creating question content.
+    // This method returns a placeholder content for the question.
     private String getContent() {
         System.out.println("Write your question...");
-        // Returning a placeholder for user input
-        return "";
+        return "This is an example question content.";
     }
 
     // Checks if the question is valid.
+    // A question is valid if it has a non-empty title and content.
     private boolean checkValidQuestion(Question question) {
         System.out.println("Checking if the question is valid...");
-        // Validation logic = is valid if it has a non-empty title and content
         return question.getTitle() != null && !question.getTitle().isEmpty() &&
                question.getContent() != null && !question.getContent().isEmpty();
     }
 
     // Simulates the user submitting the question.
+    // This method prints the username and the question title being submitted.
     private void submitQuestion(User user, Question question) {
         System.out.println(user.getUsername() + " submits the question: " + question.getTitle());
     }
 
     // Simulates saving the question in the database.
+    // This method prints the title of the question being saved.
     private void saveQuestion(Question question) {
         System.out.println("Saving the question: " + question.getTitle());
-        // Placeholder for actual save logic
     }
 
     // Confirms that the question has been posted.
+    // This method prints a confirmation message with the question title.
     private void confirmPosted(Question question) {
         System.out.println("Your question '" + question.getTitle() + "' has been posted!");
     }
 
     // Prompts the user to edit their question if it is invalid.
+    // This method prints a message prompting the user to edit their question.
     private void promptEditQuestion() {
         System.out.println("The question is invalid. Please edit your question and try again.");
     }
 
-    // Class of the user's information.
+    // Class representing the user's information.
+    // This class holds the username of the user.
     class User {
         private String username;
 
@@ -99,7 +103,8 @@ public class UserPostQuestion {
         }
     }
 
-    // Class of the question information.
+    // Class representing the question information.
+    // This class holds the title and content of the question.
     class Question {
         private String title;
         private String content;
