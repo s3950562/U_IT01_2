@@ -1,22 +1,36 @@
+// User.java
 public class User {
     private String title;
     private String content;
     private String[] tags;
 
-    // Navigates to Post Question tab
+    /**
+     * User navigates to the Post Question tab.
+     * This method initiates the process by calling the system to generate the question form.
+     */
     public void navigateToPostQuestion() {
         System.out.println("Navigating to Post Question tab...");
         System system = new System();
         system.generateQuestionForm(this);
     }
 
-    // Presses "Create New Question"
+    /**
+     * User presses the "Create New Question" button.
+     * This is a placeholder method representing user interaction.
+     */
     public void createNewQuestion() {
         System.out.println("Creating new question...");
-        // Logic for creating new question
+        // Logic for creating a new question can be added here.
     }
 
-    // Decides title, writes content, and assigns tags
+    /**
+     * User decides the title, writes the content, and assigns tags.
+     * This method captures the user's input for the new question.
+     *
+     * @param title   The title of the question.
+     * @param content The content of the question.
+     * @param tags    The tags assigned to the question.
+     */
     public void decideTitleAndContent(String title, String content, String[] tags) {
         this.title = title;
         this.content = content;
@@ -24,13 +38,16 @@ public class User {
         System.out.println("Decided title, wrote content, and assigned tags.");
     }
 
-    // Presses "Post Question" button
+    /**
+     * User presses the "Post Question" button.
+     * This method calls the system to validate the content.
+     */
     public void postQuestion() {
         System system = new System();
         system.validateContent(this);
     }
 
-    // Getters and Setters
+    // Getters and Setters for accessing private fields.
     public String getTitle() {
         return title;
     }
@@ -47,23 +64,38 @@ public class User {
 // System.java
 public class System {
 
-    // Generates a question form
+    /**
+     * Generates a question form for the user.
+     * This method is part of the process to display the form to the user.
+     *
+     * @param user The user who will fill out the question form.
+     */
     public void generateQuestionForm(User user) {
         System.out.println("Generating question form...");
         displayQuestionForm(user);
     }
 
-    // Displays the question form
+    /**
+     * Displays the generated question form to the user.
+     * This method simulates the user interface display.
+     *
+     * @param user The user who will see the question form.
+     */
     public void displayQuestionForm(User user) {
         System.out.println("Displaying question form...");
         user.createNewQuestion();
     }
 
-    // Validates user content
+    /**
+     * Validates the user's content.
+     * This method checks if the user's input is valid and decides the next steps.
+     *
+     * @param user The user who submitted the question.
+     */
     public void validateContent(User user) {
         System.out.println("Validating user content...");
-        // Validation logic
-        boolean isValid = true; // Assume validation logic sets this
+        // Validation logic here. Assuming it is valid for this example.
+        boolean isValid = true;
 
         if (isValid) {
             writePostToDatabase(user);
@@ -72,27 +104,47 @@ public class System {
         }
     }
 
-    // Writes post to the database
+    /**
+     * Writes the validated post to the database.
+     * This method simulates the storage of the user's question.
+     *
+     * @param user The user who submitted the question.
+     */
     public void writePostToDatabase(User user) {
         System.out.println("Writing post to database...");
         setPostVisible(user);
     }
 
-    // Sets the post to visible
+    /**
+     * Sets the post to visible on the website.
+     * This method updates the visibility status of the user's question.
+     *
+     * @param user The user who submitted the question.
+     */
     public void setPostVisible(User user) {
         System.out.println("Setting post to visible on the site...");
         notifyUserPostSuccessful(user);
     }
 
-    // Sends error message
+    /**
+     * Sends an error message to the user.
+     * This method handles the case where the user's content validation fails.
+     *
+     * @param user The user who submitted the question.
+     */
     public void sendErrorMessage(User user) {
         System.out.println("Sending error message to user...");
-        // Error message logic
+        // Logic to send an error message can be added here.
     }
 
-    // Notifies user about post status
+    /**
+     * Notifies the user that their post was successful.
+     * This method provides feedback to the user.
+     *
+     * @param user The user who submitted the question.
+     */
     public void notifyUserPostSuccessful(User user) {
         System.out.println("Notifying user their post was successful...");
-        // Notification logic
+        // Logic to notify the user can be added here.
     }
 }
