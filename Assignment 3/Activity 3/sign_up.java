@@ -1,58 +1,56 @@
 // Class that shows the process for a user to sign up on CodeQA
-
 public class UserSignUp {
-
     public static void main(String[] args) {
-        UserSignUp signUpProcess = new UserSignUp();
-        signUpProcess.startSignUp();
+        UserSignUp signupProcess = new UserSignUp();
+        signupProcess.startSignUp();
     }
 
     // sign-up process by creating a user object.
     public void startSignUp() {
         User user = new User();
 
-        // Step 1: User submits username
+        // [1] user submits username
         user.setUsername(submitUsername());
 
-        // Step 2: Check if username is unique
+        // [2] check if username is unique
         while (!isUsernameUnique(user.getUsername())) {
-            user.setUsername(promptForUniqueUsername());
+            user.setUsername(promptUniqueUsername());
         }
 
-        // Step 3: User submits email
+        // [3] user submits email
         user.setEmail(submitEmail());
 
-        // Step 4: Check if email is valid
+        // [4] check if email is valid
         while (!isEmailValid(user.getEmail())) {
-            user.setEmail(promptForValidEmail());
+            user.setEmail(promptValidEmail());
         }
 
-        // Step 5: User submits password
+        // [5] user submits password
         user.setPassword(submitPassword());
 
-        // Step 6: Check if password is secure
-        while (!isPasswordSecure(user.getPassword())) {
+        // [6] check if password is secure
+        while (!isSecure(user.getPassword())) {
             user.setPassword(promptForSecurePassword());
         }
 
-        // Step 7: Present terms of service
-        presentTermsOfService();
+        // [7] present T&Cs
+        presentTandCs();
 
-        // Step 8: User agrees to terms and services
+        // [8] user agrees to terms and services
         if (agreeToTerms()) {
-            // Step 9: User submits Sign-Up form
+            // [9] user submits Sign-Up form
             submitSignUpForm(user);
 
-            // Step 10: Create new user and store information
+            // [10] create new user and store information
             createUser(user);
 
-            // Step 11: Send verification email
+            // [11] send verification email
             sendVerificationEmail(user);
 
-            // Step 12: User verifies their email
+            // [12] user verifies their email
             if (verifyEmail(user)) {
-                // Step 13: Initialize user account
-                initializeUserAccount(user);
+                // [13] create user account
+                CreateUserAccount(user);
             } else {
                 // User did not press the verification link
                 suspendUserAccount(user);
@@ -61,71 +59,71 @@ public class UserSignUp {
     }
 
     // skeleton for the user submitting a username.
-    // This method returns a placeholder username.
+    // this method returns the username.
     private String submitUsername() {
-        return "exampleUsername"; // Placeholder for user input
+        return ""; // user input
     }
 
-    // Checks if the username is unique.
-    // This method returns true if the username is unique, false otherwise.
+    // checks if the username is unique.
+    // this method returns true if the username is unique, false if not.
     private boolean isUsernameUnique(String username) {
         // Placeholder for actual check
         return !username.equals("existingUsername");
     }
 
-    // Prompts the user to enter a unique username.
-    // This method returns a new unique username.
-    private String promptForUniqueUsername() {
+    // prompts the user to enter a unique username.
+    // returns a new unique username.
+    private String promptUniqueUsername() {
         return "newUniqueUsername"; // Placeholder for user input
     }
 
     // skeleton for the user submitting an email.
-    // This method returns a placeholder email.
+    // returns a email.
     private String submitEmail() {
         return "user@example.com"; // Placeholder for user input
     }
 
-    // Checks if the email is valid.
-    // This method returns true if the email is valid, false otherwise.
+    // checks if the email is valid.
+    // returns true if the email is valid, false if not.
     private boolean isEmailValid(String email) {
         // Placeholder for actual check
         return email.contains("@");
     }
 
-    // Prompts the user to enter a valid email.
-    // This method returns a valid email.
-    private String promptForValidEmail() {
-        return "valid@example.com"; // Placeholder for user input
+    // prompts the user to enter a valid email.
+    // returns a valid email.
+    private String promptValidEmail() {
+        return ""; // user input
     }
 
     // skeleton for the user submitting a password.
-    // This method returns a placeholder password.
+    // returns a password.
     private String submitPassword() {
-        return "examplePassword"; // Placeholder for user input
+        return ""; // Placeholder for user input
     }
 
-    // Checks if the password is secure.
-    // This method returns true if the password is secure, false otherwise.
-    private boolean isPasswordSecure(String password) {
-        // Placeholder for actual check
+    // checks if the password is secure.
+    // returns true if the password is secure, false otherwise.
+    private boolean isSecure(String password) {
+        // actual check placeholder
         return password.length() > 6;
     }
 
-    // Prompts the user to enter a secure password.
-    // This method returns a secure password.
+    // prompts the user to enter a secure password.
+    // returns a secure password.
     private String promptForSecurePassword() {
         return "securePassword"; // Placeholder for user input
     }
 
-    // skeleton for presenting the terms of service to the user.
-    private void presentTermsOfService() {
-        // Placeholder for presenting terms
+    // skeleton for presenting the T&Cs to the user.
+    private void presentTandCs() {
+        // Placeholder
     }
 
     // skeleton for the user agreeing to the terms of service.
-    // This method returns true to indicate agreement.
+    // returns true for agree/confirmed.
     private boolean agreeToTerms() {
-        return true; // Placeholder for user agreement
+        return true;
     }
 
     // skeleton for submitting the sign-up form.
@@ -144,23 +142,23 @@ public class UserSignUp {
     }
 
     // skeleton for user verifying their email.
-    // This method returns true to indicate successful verification.
+    // returns true to indicate successful verification.
     private boolean verifyEmail(User user) {
         return true; // Placeholder for actual verification
     }
 
-    // skeleton for initializing the user account.
-    private void initializeUserAccount(User user) {
-        // Placeholder for initializing account
+    // skeleton for creating the user account.
+    private void CreateUserAccount(User user) {
+        // Placeholder
     }
 
     // skeleton for suspending the user's account.
     private void suspendUserAccount(User user) {
-        // placeholder for suspending account
+        // suspending account
     }
 
-    // Class representing the user's information.
-    // This class holds the username, email, and password of the user.
+    // class of the user's information.
+    // holds the username, email, and password of the user.
     class User {
         private String username;
         private String email;
